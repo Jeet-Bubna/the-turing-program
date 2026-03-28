@@ -4,9 +4,7 @@ import Footer from "./components/Footer";
 
 export default function Home() {
   const webinars = [
-    { date: "OCT_1950", time: "14:00_GMT", title: "THE_IMITATION_GAME_REVISITED", speaker: "DR. ALAN_SYNTHETIC_H" },
-    { date: "NOV_2026", time: "09:30_PST", title: "NEURAL_ETHICS_IN_TRANSITION", speaker: "PROF. ELARA_VON_NEUMANN" },
-    { date: "JAN_2027", time: "18:00_UTC", title: "BEYOND_THE_CHINESE_ROOM", speaker: "ARCHIVIST_724" },
+    { date: "29_MARCH_2026", time: "14:00_GMT", title: "THE_CLOSETED_AI", speaker: "EKAGAR" }
   ];
 
   const protocols = [

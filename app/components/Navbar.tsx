@@ -17,9 +17,8 @@ export default function Navbar() {
             <span className="material-symbols-outlined">menu</span>
           </button>
           <div className="hidden md:flex gap-8">
-            <a className="font-['Space_Grotesk'] uppercase tracking-[0.1em] text-[0.75rem] text-[#ffb692] border-b-2 border-[#ff6d00]" href="#">WEBINARS</a>
-            <a className="font-['Space_Grotesk'] uppercase tracking-[0.1em] text-[0.75rem] text-[#e2e2e2] hover:text-[#ffb692] transition-colors duration-200" href="#">ABOUT</a>
-            <a className="font-['Space_Grotesk'] uppercase tracking-[0.1em] text-[0.75rem] text-[#e2e2e2] hover:text-[#ffb692] transition-colors duration-200" href="#">ETHICS</a>
+            <a className="font-['Space_Grotesk'] uppercase tracking-[0.1em] text-[0.75rem] text-[#e2e2e2] hover:text-[#ffb692] transition-colors duration-200" href="/">WEBINARS</a>
+            <a className="font-['Space_Grotesk'] uppercase tracking-[0.1em] text-[0.75rem] text-[#e2e2e2] hover:text-[#ffb692] transition-colors duration-200" href="/about">ABOUT</a>
           </div>
         </div>
         <div className="text-2xl font-bold tracking-[-0.05em] text-[#e2e2e2]">THE_TURING_PROGRAM</div>
