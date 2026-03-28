@@ -1,66 +1,80 @@
 "use client"
+
 import { useState } from 'react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <>
-      <nav className="fixed top-0 w-full z-50 flex justify-between items-center px-8 py-4 bg-surface/90 backdrop-blur-md border-b border-outline-variant/10">
+    <div className="selection:bg-primary-container selection:text-on-primary">
+      {/* Top Navigation */}
+      <nav className="fixed top-0 w-full z-50 flex justify-between items-center px-8 py-4 bg-[#131313]/90 backdrop-blur-md border-b border-outline-variant/10">
         <div className="flex items-center gap-4">
           <button 
-            className="text-primary-container p-2 -ml-2 flex items-center" 
+            className="text-[#ff6d00] p-2 -ml-2" 
             onClick={() => setIsOpen(true)}
-            aria-label="Open Menu"
           >
             <span className="material-symbols-outlined">menu</span>
           </button>
-
           <div className="hidden md:flex gap-8">
-            <a className="font-headline uppercase tracking-widest text-[0.75rem] text-primary border-b-2 border-primary-container" href="#">
-              WEBINARS
-            </a>
-            <a className="font-headline uppercase tracking-widest text-[0.75rem] text-on-surface hover:text-primary transition-colors duration-200" href="#">
-              ABOUT
-            </a>
-            <a className="font-headline uppercase tracking-widest text-[0.75rem] text-on-surface hover:text-primary transition-colors duration-200" href="#">
-              ETHICS
-            </a>
+            <a className="font-['Space_Grotesk'] uppercase tracking-[0.1em] text-[0.75rem] text-[#ffb692] border-b-2 border-[#ff6d00]" href="#">WEBINARS</a>
+            <a className="font-['Space_Grotesk'] uppercase tracking-[0.1em] text-[0.75rem] text-[#e2e2e2] hover:text-[#ffb692] transition-colors duration-200" href="#">ABOUT</a>
+            <a className="font-['Space_Grotesk'] uppercase tracking-[0.1em] text-[0.75rem] text-[#e2e2e2] hover:text-[#ffb692] transition-colors duration-200" href="#">ETHICS</a>
           </div>
         </div>
-
-        <div className="text-2xl font-bold tracking-tighter text-on-surface font-headline">
-          THE_TURING_PROGRAM
-        </div>
+        <div className="text-2xl font-bold tracking-[-0.05em] text-[#e2e2e2]">THE_TURING_PROGRAM</div>
       </nav>
 
-      {isOpen && (
-        <div 
-          className="fixed inset-0 bg-black/60 z-[60] backdrop-blur-sm transition-opacity"
-          onClick={() => setIsOpen(false)}
-        />
-      )}
+      {/* Overlay for Sidebar */}
+      <div 
+        className={`fixed inset-0 bg-black/60 z-[55] ${isOpen ? '' : 'hidden'}`} 
+        onClick={() => setIsOpen(false)}
+      ></div>
 
+      {/* Sidebar Navigation (Drawer) */}
       <aside 
-        className={`fixed top-0 left-0 h-full w-72 bg-surface border-r border-outline-variant/20 z-[70] transition-transform duration-300 ease-in-out ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className={`fixed left-0 top-0 h-full z-[60] flex flex-col p-6 backdrop-blur-md bg-[#131313]/95 w-72 border-r border-outline-variant/20 shadow-2xl transition-transform duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}
       >
-        <div className="p-8">
+        <div className="flex justify-between items-center mb-12">
+          <div>
+            <div className="font-['Space_Grotesk'] uppercase tracking-[0.1em] text-[0.6875rem] text-[#ffb692]">V.01_ARCHIVIST</div>
+            <div className="text-[0.6rem] font-mono text-secondary/50">SYSTEM_READY</div>
+          </div>
           <button 
-            className="text-on-surface mb-8" 
+            className="text-secondary hover:text-[#ffb692] transition-colors" 
             onClick={() => setIsOpen(false)}
           >
             <span className="material-symbols-outlined">close</span>
           </button>
-          
-          <nav className="flex flex-col gap-6">
-            <a href="#" className="font-headline text-xl text-on-surface">Webinars</a>
-            <a href="#" className="font-headline text-xl text-on-surface">About</a>
-            <a href="#" className="font-headline text-xl text-on-surface">Ethics</a>
-          </nav>
+        </div>
+
+        <nav className="flex flex-col gap-2 flex-grow">
+          <a className="flex items-center gap-3 p-3 text-[#ff6d00] font-bold bg-[#1b1b1b] font-['Space_Grotesk'] uppercase tracking-[0.1em] text-[0.6875rem]" href="#">
+            <span className="material-symbols-outlined">folder_open</span> ARCHIVE_HOME
+          </a>
+          <a className="flex items-center gap-3 p-3 text-[#e2e2e2] hover:text-[#ffb692] transition-all font-['Space_Grotesk'] uppercase tracking-[0.1em] text-[0.6875rem] active:translate-x-1" href="#webinars">
+            <span className="material-symbols-outlined">event_note</span> WEBINAR_SCHEDULE
+          </a>
+          <a className="flex items-center gap-3 p-3 text-[#e2e2e2] hover:text-[#ffb692] transition-all font-['Space_Grotesk'] uppercase tracking-[0.1em] text-[0.6875rem] active:translate-x-1" href="#about">
+            <span className="material-symbols-outlined">menu_book</span> SCHOLARLY_ABOUT
+          </a>
+          <a className="flex items-center gap-3 p-3 text-[#e2e2e2] hover:text-[#ffb692] transition-all font-['Space_Grotesk'] uppercase tracking-[0.1em] text-[0.6875rem] active:translate-x-1" href="#ethics">
+            <span className="material-symbols-outlined">gavel</span> ETHICAL_AI_PROTOCOL
+          </a>
+        </nav>
+
+        <div className="mt-auto pt-8 border-t border-outline-variant/20">
+          <button className="signal-gradient w-full py-4 mb-8 text-on-primary font-bold tracking-widest text-[0.6875rem]">START_INQUIRY</button>
+          <div className="flex flex-col gap-2">
+            <a className="flex items-center gap-3 p-2 text-[#e2e2e2] hover:text-[#ffb692] font-['Space_Grotesk'] uppercase tracking-[0.1em] text-[0.6875rem]" href="#">
+              <span className="material-symbols-outlined">settings</span> SETTINGS
+            </a>
+            <a className="flex items-center gap-3 p-2 text-[#e2e2e2] hover:text-[#ffb692] font-['Space_Grotesk'] uppercase tracking-[0.1em] text-[0.6875rem]" href="#">
+              <span className="material-symbols-outlined">logout</span> LOGOUT
+            </a>
+          </div>
         </div>
       </aside>
-    </>
+    </div>
   );
 }
